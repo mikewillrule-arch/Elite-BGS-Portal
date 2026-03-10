@@ -79,6 +79,9 @@ What This Program Actually Is — For the Cautious Commander
 
 # Elite BGS Analyzer — Squadron Intelligence Dashboard
 
+<img width="1891" height="932" alt="image" src="https://github.com/user-attachments/assets/0587e759-6f3c-4f2f-b46c-5b89e6000101" />
+
+
 A real-time Background Simulation (BGS) tracking and intelligence dashboard for Elite Dangerous squadron commanders. Built for squadrons who take the BGS seriously — live EDDN data, AI-powered briefings, tick detection, war tracking, rival monitoring, and a full squadron command interface, all in a single self-hosted web app.
 
 ---
