@@ -1,3 +1,80 @@
+What This Program Actually Is — For the Cautious Commander
+
+  Fair question, and smart instinct. Here's exactly what you're running and why it's safe.
+
+  ---
+  What kind of file is this?
+
+  This is a Node.js web application — the same technology that runs Discord, Slack, GitHub, and thousands of other tools you already use every day. It is not an .exe compiled from unknown source code. It is
+  plain, human-readable JavaScript text files that Node.js interprets line by line at runtime.
+
+  You can open server.js, eddn-listener.js, or any other file in Notepad right now and read every single line of what it does before running it. Nothing is hidden, obfuscated, or compiled into a binary blob.
+  It is source code all the way down.
+
+  ---
+  What does it actually do on your PC?
+
+  Here is the complete list of everything this program does to your computer:
+
+  1. Opens one port on localhost (port 3000) — this is a local web server, identical in concept to running a web page on your own machine. It is not exposed to the internet unless you specifically set up Ngrok
+   yourself.
+  2. Connects outbound to EDDN (eddn.edcd.io:9500) — this is the official Elite Dangerous Data Network, the same data source used by Inara, EDDB, and EliteBGS.app. It receives live BGS data from the game.
+  3. Makes HTTPS API calls to services you configured — Gemini, Groq, EliteBGS.app, Inara — to fetch faction data and run AI analysis. These are outbound calls only, same as your browser calling a website.
+  4. Writes files to its own data/ folder — stores squadron config, user accounts, and BGS history inside the project folder. It does not touch anywhere else on your system.
+  5. That's it. No registry edits. No startup entries. No background processes after you close it. No access to your Elite Dangerous installation, your journal files, or anything outside its own folder.
+
+  ---
+  What it does NOT do
+
+  - Does not read your files, documents, or Elite journal files
+  - Does not install anything system-wide
+  - Does not run in the background after you close the terminal window
+  - Does not modify your registry
+  - Does not make any outbound connections other than the three listed above
+  - Does not have any mechanism to receive incoming connections from the internet (unless you manually set up Ngrok)
+  - Does not collect or transmit your personal data anywhere
+
+  ---
+  Why does it need to run locally at all?
+
+  Because it's a web server. The dashboard your browser opens at http://localhost:3000 has to be served by something. That something is node server.js. It's the same reason you have to run a Minecraft server
+  on a machine to host a Minecraft server — there's no magic cloud doing it for free. The upside is that your data stays on your machine, under your control, forever.
+
+  ---
+  The dependencies (node_modules)
+
+  When you run npm install, it downloads about 30 small packages from the official npm registry — things like express (the most popular Node.js web framework on the planet, used by millions of projects) and
+  zeromq (a networking library). These are all open source, publicly audited packages. You can check every one of them at npmjs.com.
+
+  ---
+  Still not sure? Scan it first.
+
+  Totally reasonable. Here's how:
+
+  VirusTotal (easiest — no install needed):
+  1. Go to https://www.virustotal.com
+  2. Click Choose file
+  3. Zip up the project folder and upload it, or upload individual files like server.js and eddn-listener.js
+  4. 70+ antivirus engines will scan it in about 30 seconds
+  5. Read the results
+
+  Your local antivirus:
+  - Right-click the project folder → Scan with [Windows Defender / Malwarebytes / whatever you use]
+  - JavaScript files are text — your AV will have no trouble reading them
+
+  Read the source yourself:
+  - Open server.js in Notepad or VS Code
+  - Ctrl+F for words like exec, spawn, writeFile to see exactly what system calls it makes
+  - Everything is labeled with comments explaining what each section does
+
+
+
+  This is a text-based web application written in one of the most common, most scrutinized programming languages on earth. It has no installer, no compiled binary, no persistence mechanism, and no access to
+  anything outside its own folder. It runs when you tell it to run and stops when you close the window.
+
+  If you've ever run a Minecraft server, a Discord bot, or any other local tool your squadron uses — this is the same category of thing.
+
+
 # Elite BGS Analyzer — Squadron Intelligence Dashboard
 
 A real-time Background Simulation (BGS) tracking and intelligence dashboard for Elite Dangerous squadron commanders. Built for squadrons who take the BGS seriously — live EDDN data, AI-powered briefings, tick detection, war tracking, rival monitoring, and a full squadron command interface, all in a single self-hosted web app.
