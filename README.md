@@ -1,179 +1,205 @@
-Demo Link : https://nonskeletal-davin-nonzonated.ngrok-free.dev/
+<div align="center">
 
-What This Program Actually Is — For the Cautious Commander
+<img src="https://i.imgur.com/placeholder.png" alt="Elite BGS Analyzer" width="120"/>
 
-  Fair question, and smart instinct. Here's exactly what you're running and why it's safe.
+# Elite BGS Analyzer
+### Squadron Intelligence Dashboard for Elite Dangerous
 
-  ---
-  What kind of file is this?
+[![Node.js](https://img.shields.io/badge/Node.js-v18%2B-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
+[![EDDN](https://img.shields.io/badge/Data-EDDN%20Live-00d4ff?style=for-the-badge)](https://eddn.edcd.io)
+[![AI Powered](https://img.shields.io/badge/AI-Gemini%20%7C%20Groq%20%7C%20Mistral-ff8800?style=for-the-badge)](https://aistudio.google.com)
+[![Self Hosted](https://img.shields.io/badge/Self--Hosted-Your%20Data-00ff88?style=for-the-badge)](#installation)
 
-  This is a Node.js web application — the same technology that runs Discord, Slack, GitHub, and thousands of other tools you already use every day. It is not an .exe compiled from unknown source code. It is
-  plain, human-readable JavaScript text files that Node.js interprets line by line at runtime.
+**Real-time BGS tracking · AI-powered briefings · Tick detection · War tables · Rival monitoring**
 
-  You can open server.js, eddn-listener.js, or any other file in Notepad right now and read every single line of what it does before running it. Nothing is hidden, obfuscated, or compiled into a binary blob.
-  It is source code all the way down.
+[▶ Live Demo](https://nonskeletal-davin-nonzonated.ngrok-free.dev/) &nbsp;·&nbsp; [Installation](#installation) &nbsp;·&nbsp; [Free API Keys](#getting-your-free-api-keys) &nbsp;·&nbsp; [Ngrok Setup](#remote-access-with-ngrok)
 
-  ---
-  What does it actually do on your PC?
-
-  Here is the complete list of everything this program does to your computer:
-
-  1. Opens one port on localhost (port 3000) — this is a local web server, identical in concept to running a web page on your own machine. It is not exposed to the internet unless you specifically set up Ngrok
-   yourself.
-  2. Connects outbound to EDDN (eddn.edcd.io:9500) — this is the official Elite Dangerous Data Network, the same data source used by Inara, EDDB, and EliteBGS.app. It receives live BGS data from the game.
-  3. Makes HTTPS API calls to services you configured — Gemini, Groq, EliteBGS.app, Inara — to fetch faction data and run AI analysis. These are outbound calls only, same as your browser calling a website.
-  4. Writes files to its own data/ folder — stores squadron config, user accounts, and BGS history inside the project folder. It does not touch anywhere else on your system.
-  5. That's it. No registry edits. No startup entries. No background processes after you close it. No access to your Elite Dangerous installation, your journal files, or anything outside its own folder.
-
-  ---
-  What it does NOT do
-
-  - Does not read your files, documents, or Elite journal files
-  - Does not install anything system-wide
-  - Does not run in the background after you close the terminal window
-  - Does not modify your registry
-  - Does not make any outbound connections other than the three listed above
-  - Does not have any mechanism to receive incoming connections from the internet (unless you manually set up Ngrok)
-  - Does not collect or transmit your personal data anywhere
-
-  ---
-  Why does it need to run locally at all?
-
-  Because it's a web server. The dashboard your browser opens at http://localhost:3000 has to be served by something. That something is node server.js. It's the same reason you have to run a Minecraft server
-  on a machine to host a Minecraft server — there's no magic cloud doing it for free. The upside is that your data stays on your machine, under your control, forever.
-
-  ---
-  The dependencies (node_modules)
-
-  When you run npm install, it downloads about 30 small packages from the official npm registry — things like express (the most popular Node.js web framework on the planet, used by millions of projects) and
-  zeromq (a networking library). These are all open source, publicly audited packages. You can check every one of them at npmjs.com.
-
-  ---
-  Still not sure? Scan it first.
-
-  Totally reasonable. Here's how:
-
-  VirusTotal (easiest — no install needed):
-  1. Go to https://www.virustotal.com
-  2. Click Choose file
-  3. Zip up the project folder and upload it, or upload individual files like server.js and eddn-listener.js
-  4. 70+ antivirus engines will scan it in about 30 seconds
-  5. Read the results
-
-  Your local antivirus:
-  - Right-click the project folder → Scan with [Windows Defender / Malwarebytes / whatever you use]
-  - JavaScript files are text — your AV will have no trouble reading them
-
-  Read the source yourself:
-  - Open server.js in Notepad or VS Code
-  - Ctrl+F for words like exec, spawn, writeFile to see exactly what system calls it makes
-  - Everything is labeled with comments explaining what each section does
-
-
-
-  This is a text-based web application written in one of the most common, most scrutinized programming languages on earth. It has no installer, no compiled binary, no persistence mechanism, and no access to
-  anything outside its own folder. It runs when you tell it to run and stops when you close the window.
-
-  If you've ever run a Minecraft server, a Discord bot, or any other local tool your squadron uses — this is the same category of thing.
-
-
-# Elite BGS Analyzer — Squadron Intelligence Dashboard
-
-<img width="1915" height="1028" alt="image" src="https://github.com/user-attachments/assets/c46b2f52-dbe4-4ac9-a984-5a2bcd9fc6af" />
-
-
-
-A real-time Background Simulation (BGS) tracking and intelligence dashboard for Elite Dangerous squadron commanders. Built for squadrons who take the BGS seriously — live EDDN data, AI-powered briefings, tick detection, war tracking, rival monitoring, and a full squadron command interface, all in a single self-hosted web app.
+</div>
 
 ---
 
-## Why Use This Over Other Tools?
+> **Built for squadrons who take the BGS seriously.** Most tools give you raw data tables. This gives you command intelligence — live EDDN feed, AI executive briefings, automatic post-tick monitoring, and a full squadron command center, all in a single self-hosted web app.
 
-Most BGS tools (EDDB, Inara, EliteBGS.app) give you raw data tables. This gives you **command intelligence**.
+---
+
+## 🛡️ Is It Safe to Run?
+
+<details>
+<summary><strong>Click here — important reading before you install</strong></summary>
+
+<br>
+
+Fair question, and a smart instinct. Here is exactly what this program does on your machine.
+
+**What kind of file is this?**
+
+This is a **Node.js web application** — the same technology stack that powers Discord, Slack, GitHub, and Twitch. It is not a compiled `.exe` from unknown source. It is plain, human-readable JavaScript text files that Node.js runs line by line. Open `server.js` in Notepad right now and read it before running anything. Nothing is hidden, obfuscated, or compiled into a binary blob.
+
+**Complete list of what it does to your PC:**
+
+| Action | Details |
+|---|---|
+| Opens port 3000 on localhost | Local web server only. Not internet-facing unless you set up Ngrok yourself. |
+| Connects to `eddn.edcd.io:9500` | The official Elite Dangerous Data Network — same source as Inara, EDDB, EliteBGS.app. Outbound only. |
+| Makes HTTPS API calls | To Gemini, Groq, EliteBGS.app, Inara — services you configure. Outbound only. Same as a browser. |
+| Writes to `data/` folder | Squadron config, user accounts, BGS history. Only inside the project folder. Nowhere else. |
+
+**What it does NOT do:**
+
+- ❌ Does not read your files, documents, or Elite Dangerous journal files
+- ❌ Does not install anything system-wide or add startup entries
+- ❌ Does not run in the background after you close the terminal
+- ❌ Does not modify the Windows registry
+- ❌ Does not make any outbound connections beyond the three listed above
+- ❌ Does not collect or send your personal data anywhere
+
+**Still not sure? Scan it first — completely reasonable.**
+
+**VirusTotal** (no install needed):
+1. Go to [virustotal.com](https://www.virustotal.com)
+2. Zip the project folder and upload it — or upload `server.js` and `eddn-listener.js` individually
+3. 70+ antivirus engines scan it in about 30 seconds
+
+**Your local AV:**
+Right-click the project folder → Scan with Windows Defender / Malwarebytes / whatever you use. JavaScript files are plain text — any AV can read them.
+
+**Read the source yourself:**
+Open `server.js` in VS Code or Notepad. `Ctrl+F` for `exec`, `spawn`, `writeFile` to see every system call the program makes. Everything is commented.
+
+> If you've ever run a Minecraft server, a Discord bot, or any other self-hosted tool — this is the same category of thing. It runs when you start it and stops when you close the window.
+
+</details>
+
+---
+
+## 🆚 Why Use This Over Other Tools?
+
+Most BGS tools (Inara, EDDB, EliteBGS.app) give you **data**. This gives you **decisions**.
 
 | Feature | Other Tools | Elite BGS Analyzer |
-|---|---|---|
-| Live EDDN data (no refresh needed) |  |  Real-time ZeroMQ feed |
-| AI executive briefings |  |  Gemini / Groq / Mistral AI |
-| BGS tick auto-detection |  |  EDDN + tick.edcd.io |
-| Post-tick change monitoring |  |  Auto-polls + AI diff report |
-| War table with conflict tracking |  |  Built-in |
-| Rival faction monitor |  |  Real-time influence tracker |
-| Squadron member accounts |  |  Login, ranks, messaging |
-| Per-user color themes |  |  Saved to user profile |
-| CMDR activity tracking |  |  Dev dashboard + commendations |
-| Works on your LAN or internet |  |  Ngrok tunnel included |
-| Open source, self-hosted |  |  Your data, your server |
-
-If your squadron has a dedicated BGS officer or wants to coordinate operations across multiple commanders, this is the tool.
+|---|:---:|:---:|
+| Live EDDN data — no manual refresh | ❌ | ✅ Real-time ZeroMQ feed |
+| AI executive briefings | ❌ | ✅ Gemini · Groq · Mistral |
+| BGS tick auto-detection | ❌ | ✅ EDDN + tick.edcd.io |
+| Post-tick change monitoring | ❌ | ✅ Auto-polls + AI diff report |
+| War table with conflict tracking | ❌ | ✅ Built-in |
+| Rival faction influence monitor | ❌ | ✅ Real-time |
+| Squadron member accounts & ranks | ❌ | ✅ Login, ranks, messaging |
+| Per-user color themes | ❌ | ✅ Saved to user profile |
+| CMDR activity tracking | ❌ | ✅ Dev dashboard + commendations |
+| Works on LAN or internet | ❌ | ✅ Ngrok tunnel support |
+| Open source, self-hosted | ❌ | ✅ Your data, your server |
 
 ---
 
-## Features
+## ✨ Features
 
-### Live BGS Intelligence
-- **Real-time EDDN feed** — listens to the Elite Dangerous Data Network via ZeroMQ. Every FSD jump and location event from every player in the game flows through. Your squadron's faction influence updates the moment someone submits a journal entry.
-- **BGS Tick Detection** — detects the daily BGS tick using two parallel methods: EDDN influence change detection (threshold-based, watches all factions) and a live WebSocket feed from `tick.edcd.io`. Once the tick fires, post-tick monitoring begins automatically.
-- **Post-Tick Monitoring** — after the tick, the system takes a baseline snapshot of all your watched systems and polls for changes every 20 minutes for 1 hour. When changes are detected, an AI executive brief is automatically generated and pushed to all connected clients.
-- **Tick Countdown** — live countdown to the next 15:50 UTC BGS tick displayed in the header, format `Xh MMm SSs`.
+<details>
+<summary><strong>📡 Live BGS Intelligence</strong></summary>
 
-### AI-Powered Analysis
-- **Executive Briefings** — ask the AI for a full squadron operations brief. The AI knows your faction, current influence levels, active states, conflicts, and recent changes.
-- **Strategy Suggestions** — request optimized BGS action plans based on current system states.
-- **Journal Analysis** — paste in your Elite Dangerous journal events and get a BGS contribution breakdown.
-- **AI Fallback Chain** — Gemini → Groq (LLaMA 3.3 70B) → OpenRouter → Mistral. If your primary AI hits its daily quota, the system falls over to the next provider automatically. All providers have generous free tiers.
+<br>
 
-### Squadron Command Center
-- **War Table** — track all active conflicts your faction is in. See combat bond counts, war states, and opposing factions.
-- **Rival Faction Monitor** — set a rival faction and track their influence across all their systems in real time. Get AI analysis of their trajectory.
-- **System Deep Dive** — click any system for a full breakdown: all factions, influence history, active/pending states, last seen timestamp.
+- **Real-time EDDN feed** — listens to the Elite Dangerous Data Network via ZeroMQ. Every FSD jump and location event from every player in the game flows through. Your faction's influence updates the moment a journal is submitted anywhere.
+- **BGS Tick Detection** — dual-source detection: EDDN influence change threshold (watches all factions, not just yours) + live WebSocket push from `tick.edcd.io`. Both run in parallel with a 12-hour gate to prevent double-firing.
+- **Post-Tick Monitoring** — on tick detection, the system snapshots all watched systems from EliteBGS API, then polls for changes every 20 minutes for 1 hour. When changes are detected, an AI brief is generated and pushed to all connected browser clients in real time.
+- **Tick Countdown** — live `Xh MMm SSs` countdown to the next 15:50 UTC BGS tick in the header bar.
+
+</details>
+
+<details>
+<summary><strong>🤖 AI-Powered Analysis</strong></summary>
+
+<br>
+
+- **Executive Briefings** — full squadron operations brief on demand. The AI has context for your faction, influence levels, active states, conflicts, and recent post-tick changes.
+- **Strategy Suggestions** — AI-optimized BGS action plans based on current system states.
+- **Journal Analysis** — paste Elite Dangerous journal events and get a BGS contribution breakdown per CMDR.
+- **Automatic AI Fallback Chain** — Gemini → Groq (LLaMA 3.3 70B) → OpenRouter → Mistral. If your primary AI hits its daily quota, the next provider takes over silently. All have generous free tiers.
+
+</details>
+
+<details>
+<summary><strong>⚔️ Squadron Command Center</strong></summary>
+
+<br>
+
+- **War Table** — all active conflicts your faction is involved in. Combat bond counts, war states, opposing factions.
+- **Rival Faction Monitor** — set a rival faction and track their influence across all their systems in real time. Get AI trajectory analysis.
+- **System Deep Dive** — full breakdown per system: all factions, influence history, active/pending states, last-seen timestamp.
 - **Galactic Map Annotations** — mark key systems on your sector map with custom labels and colors.
 
-### Squadron Social Features
-- **User Accounts** — squadron members register with a CMDR name and password. Leadership has an admin key, members have their own login.
-- **Rank System** — assign ranks to members (Recruit → Wing Commander, etc.).
-- **Internal Messaging** — Leadership can send announcements and direct messages to registered members.
-- **Activity Tracking** — see which CMDRs have submitted the most journal data, who's been most active, and commendation counts.
-- **Per-User Color Themes** — each user can pick their own color scheme (Cyan, Amber, Red, Purple, White) or build a fully custom hex theme. Saved to their profile.
+</details>
 
-### First-Boot Setup Wizard
-- On first launch, a setup wizard walks the new squadron commander through:
-  - Setting their squadron name (as it appears on Inara)
-  - Choosing brand colors and initials badge
-  - Setting the leadership password and dev/log password
-  - Entering API keys for Gemini, Groq, OpenRouter, Mistral, and Inara
-- All configuration is saved to `data/squadron_config.json`. The `.env` file is written automatically. No manual file editing required.
+<details>
+<summary><strong>👥 Squadron Social Features</strong></summary>
 
-### CLI Companion (`bgs-analyzer.js`)
-- A terminal-based BGS analysis tool with slash commands:
-  - `/watch <system>` — add a system to post-tick monitoring
-  - `/unwatch <system>` — remove a system
-  - `/tick` — show tick status and countdown
-  - `/squadron` — fetch squadron data from Inara
-  - `/analyze` — run AI analysis from the terminal
-- Set `WATCH_SYSTEMS=Sol,Deciat` in `.env` for auto-monitoring on launch.
+<br>
+
+- **User Accounts** — members register with CMDR name and password. Leadership has a separate admin key.
+- **Rank System** — assign ranks to members (Recruit through Wing Commander).
+- **Internal Messaging** — leadership announcements and direct inbox messages.
+- **Activity Tracking** — CMDR journal submission counts, most active commanders, commendation leaderboard.
+- **Per-User Color Themes** — Cyan, Amber, Red, Purple, White presets or fully custom hex values. Saved to each user's profile.
+
+</details>
+
+<details>
+<summary><strong>🧙 First-Boot Setup Wizard</strong></summary>
+
+<br>
+
+On first launch, a full-screen setup wizard appears automatically and walks you through:
+
+1. Squadron name (as it appears on Inara)
+2. Initials badge and brand colors
+3. Leadership password and dev/log password
+4. API keys for Gemini, Groq, OpenRouter, Mistral, and Inara
+
+Configuration saves to `data/squadron_config.json`. The `.env` file is written automatically. No manual file editing required.
+
+</details>
+
+<details>
+<summary><strong>💻 CLI Companion (bgs-analyzer.js)</strong></summary>
+
+<br>
+
+A terminal-based BGS tool with slash commands for commanders who prefer the console:
+
+| Command | Action |
+|---|---|
+| `/watch <system>` | Add a system to post-tick monitoring |
+| `/unwatch <system>` | Remove a system |
+| `/tick` | Show tick status and countdown |
+| `/squadron` | Fetch squadron data from Inara |
+| `/analyze` | Run AI analysis from the terminal |
+
+Set `WATCH_SYSTEMS=Sol,Deciat` in `.env` for auto-monitoring on every launch.
+
+</details>
 
 ---
 
-## Requirements
+## 📋 Requirements
 
 - **Node.js** v18 or higher — [nodejs.org](https://nodejs.org)
 - **npm** — included with Node.js
-- **At least one AI API key** — all free tier, links below
-- **Ngrok** (optional) — only needed if you want remote access outside your home network
+- **At least one AI API key** — all free tier, instructions below
+- **Ngrok** *(optional)* — only if you want access outside your home network
 
 ---
 
-## Installation
+## 🚀 Installation
 
 ### Step 1 — Download
-
-Clone the repository or download and extract the ZIP:
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/elite-bgs-analyzer.git
 cd elite-bgs-analyzer
 ```
+
+Or download and extract the ZIP from the releases page.
 
 ### Step 2 — Install Dependencies
 
@@ -181,7 +207,7 @@ cd elite-bgs-analyzer
 npm install
 ```
 
-This installs Express, ZeroMQ, ws, dotenv, and all other required packages. It takes about 30 seconds.
+Installs Express, ZeroMQ, ws, dotenv, and ~30 other audited open-source packages. Takes about 30 seconds.
 
 ### Step 3 — Start the Server
 
@@ -195,203 +221,197 @@ Double-click start.bat
 node server.js
 ```
 
-### Step 4 — First-Boot Setup Wizard
+### Step 4 — Complete the Setup Wizard
 
-Open your browser to `http://localhost:3000`
+Open **`http://localhost:3000`** in your browser.
 
-The setup wizard will appear automatically on first launch. It will ask you for:
-
-1. **Squadron Name** — your squadron's name as it appears on Inara (e.g. `The Pilots Federation`)
-2. **Initials** — 2–3 letter badge shown in the header (e.g. `PF`)
-3. **Brand Colors** — primary, accent, and highlight hex colors for your dashboard
-4. **Leadership Password** — this is the admin key used to unlock leadership features. Minimum 6 characters. Write it down.
-5. **Dev/Log Password** — used to access the raw activity log and dev dashboard. Minimum 6 characters.
-6. **API Keys** — enter at least one AI key (Gemini is recommended as the primary). All others are fallbacks and optional but recommended.
-
-Click **COMPLETE SETUP** and the dashboard will load with your squadron's branding.
+The setup wizard appears automatically on first launch. Fill in your squadron name, colors, passwords, and API keys — then click **COMPLETE SETUP**. The dashboard loads with your squadron's branding applied.
 
 ---
 
-## Getting Your Free API Keys
+## 🔑 Getting Your Free API Keys
 
-All AI providers below have a free tier that is sufficient for daily BGS analysis.
+All AI providers below have a free tier sufficient for daily BGS analysis.
 
-### Gemini (Primary AI) — Free
+<details>
+<summary><strong>Gemini — Primary AI (Free)</strong></summary>
+
 1. Go to [aistudio.google.com](https://aistudio.google.com)
 2. Sign in with a Google account
 3. Click **Get API Key** → **Create API key**
 4. Copy the key — it starts with `AIza...`
 
-### Groq (Fallback 1) — Free
+</details>
+
+<details>
+<summary><strong>Groq — Fallback 1 (Free)</strong></summary>
+
 1. Go to [console.groq.com](https://console.groq.com)
 2. Create a free account
 3. Go to **API Keys** → **Create API Key**
 4. Copy the key — it starts with `gsk_...`
 
-### OpenRouter (Fallback 2) — Free tier available
+</details>
+
+<details>
+<summary><strong>OpenRouter — Fallback 2 (Free tier)</strong></summary>
+
 1. Go to [openrouter.ai/keys](https://openrouter.ai/keys)
 2. Create a free account
 3. Click **Create Key**
 4. Copy the key — it starts with `sk-or-v1-...`
 
-### Mistral (Fallback 3) — Free tier available
+</details>
+
+<details>
+<summary><strong>Mistral — Fallback 3 (Free tier)</strong></summary>
+
 1. Go to [console.mistral.ai/api-keys](https://console.mistral.ai/api-keys)
 2. Create a free account
-3. Click **Create new key**
-4. Copy the key
+3. Click **Create new key** and copy it
 
-### Inara (Optional — Squadron Data)
+</details>
+
+<details>
+<summary><strong>Inara — Optional, Squadron Data</strong></summary>
+
 1. Go to [inara.cz/elite/settings-api](https://inara.cz/elite/settings-api/)
 2. Log in with your Inara account
-3. Register your application (name it anything, e.g. `BGS Dashboard`)
+3. Register an application (name it anything — e.g. `BGS Dashboard`)
 4. Copy the API key shown
 
+</details>
+
 ---
 
-## Remote Access with Ngrok
+## 🌐 Remote Access with Ngrok
 
-By default the dashboard runs on `http://localhost:3000` — only accessible on your local machine. If you want squadron members to connect from outside your home network, you need Ngrok.
+By default the dashboard runs on `http://localhost:3000` — your machine only. To let squadron members connect from outside your network, use Ngrok.
 
-### What is Ngrok?
+**What is Ngrok?** It creates a secure tunnel from the internet to your local server. You get a public URL like `https://abc123.ngrok-free.app` that anyone can open in a browser.
 
-Ngrok creates a secure tunnel from the internet to your local server. You get a public URL (like `https://abc123.ngrok-free.app`) that anyone can open in their browser and access your running dashboard.
+### Free vs Paid
 
-### Free vs Paid Ngrok
-
-| | Free Plan | Paid Plan (~$10/mo) |
+| | Free Plan | Paid (~$10/mo) |
 |---|---|---|
-| URL | Random, changes every restart | Permanent custom domain |
+| URL | Random, changes on restart | Permanent custom domain |
 | Sessions | 1 at a time | Multiple |
-| Bandwidth | Limited but sufficient | Higher limits |
-| Auth | Requires one-time agent setup | Same |
+| Bandwidth | Limited but sufficient | Higher |
 
-**For most squadrons, the free plan is fine.** Your URL changes when you restart Ngrok, but you can just paste the new URL in your Discord each time. If you want a permanent link your members can bookmark, upgrade to the Starter plan and follow the custom domain steps below.
+For most squadrons the free plan is fine — just paste the new URL in Discord each session. For a permanent bookmarkable link, upgrade to Starter.
 
 ---
 
-### Setting Up Ngrok — Step by Step
+<details>
+<summary><strong>📡 Ngrok Setup — Step by Step (Free Plan)</strong></summary>
 
-#### 1. Create a Free Ngrok Account
+<br>
 
-Go to [ngrok.com](https://ngrok.com) and sign up. It's free and only takes a minute.
+**1. Create a free Ngrok account**
 
-#### 2. Download Ngrok
+Go to [ngrok.com](https://ngrok.com) and sign up.
 
-- **Windows**: Download the `.zip` from your Ngrok dashboard → [dashboard.ngrok.com/get-started/setup](https://dashboard.ngrok.com/get-started/setup)
-  - Extract `ngrok.exe` to a folder you'll remember (e.g. `C:\ngrok\`)
-- **Mac**: `brew install ngrok/ngrok/ngrok`
-- **Linux**: `snap install ngrok` or download the binary
+**2. Download Ngrok**
 
-#### 3. Authenticate Ngrok
+- **Windows** — download the `.zip` from [dashboard.ngrok.com/get-started/setup](https://dashboard.ngrok.com/get-started/setup), extract `ngrok.exe` to a folder like `C:\ngrok\`
+- **Mac** — `brew install ngrok/ngrok/ngrok`
+- **Linux** — `snap install ngrok`
 
-In your Ngrok dashboard, go to **Your Authtoken** and copy it. Then run:
+**3. Authenticate (one time only)**
+
+In your Ngrok dashboard, go to **Your Authtoken** and copy it:
 
 ```bash
 ngrok config add-authtoken YOUR_AUTHTOKEN_HERE
 ```
 
-You only need to do this once per machine.
-
-#### 4. Start Your Dashboard
-
-First, make sure your dashboard server is running:
+**4. Start the dashboard**
 
 ```bash
 node server.js
 ```
-(or double-click `start.bat` on Windows)
 
-#### 5. Start the Ngrok Tunnel
-
-In a **separate** terminal window:
+**5. In a second terminal, start the tunnel**
 
 ```bash
 ngrok http 3000
 ```
 
-Ngrok will display something like:
-
+Ngrok shows:
 ```
 Forwarding    https://a1b2c3d4.ngrok-free.app -> http://localhost:3000
 ```
 
-That `https://a1b2c3d4.ngrok-free.app` URL is your public dashboard link. Share it with your squadron in Discord.
+Share that URL with your squadron. Keep both windows open — closing either takes the dashboard offline.
 
-> **Note:** Keep both windows open. If you close either one, the dashboard goes offline.
+</details>
 
----
+<details>
+<summary><strong>🔒 Permanent Ngrok Link — Static Domain (Paid Plan)</strong></summary>
 
-### Setting Up a Permanent Ngrok Link (Paid)
+<br>
 
-If you want a URL that never changes — something your members can bookmark permanently — follow these steps after upgrading to the Ngrok Starter plan.
+After upgrading to Ngrok Starter at [ngrok.com/pricing](https://ngrok.com/pricing):
 
-#### 1. Upgrade Your Ngrok Plan
+**1. Reserve your static domain**
 
-Go to [ngrok.com/pricing](https://ngrok.com/pricing) and upgrade to **Starter** ($10/month). This unlocks custom domains and static addresses.
+In the Ngrok dashboard → **Cloud Edge** → **Domains** → **New Domain**
 
-#### 2. Reserve a Static Domain
+Pick a name like `my-squadron-bgs.ngrok.app` and click **Create**.
 
-1. In your Ngrok dashboard, go to **Cloud Edge** → **Domains**
-2. Click **New Domain**
-3. Choose a name like `my-squadron-bgs.ngrok.app`
-4. Click **Create**
-
-Your domain is now reserved — it will always point to your tunnel when it's running.
-
-#### 3. Start Ngrok with Your Static Domain
-
-Instead of `ngrok http 3000`, use:
+**2. Start Ngrok with your domain**
 
 ```bash
 ngrok http --domain=my-squadron-bgs.ngrok.app 3000
 ```
 
-Your dashboard is now permanently accessible at `https://my-squadron-bgs.ngrok.app` — every time you start Ngrok with that command, the same URL is live.
+Your dashboard is now permanently at `https://my-squadron-bgs.ngrok.app` every time you run that command.
 
-#### 4. Make It Easy to Start (Windows)
+**3. One-click Windows launcher**
 
-Create a file called `start-with-tunnel.bat` in your project folder:
+Create `start-with-tunnel.bat` in your project folder:
 
 ```batch
 @echo off
 start "BGS Server" cmd /k "node server.js"
 timeout /t 3
 start "Ngrok Tunnel" cmd /k "ngrok http --domain=my-squadron-bgs.ngrok.app 3000"
-echo Dashboard starting at https://my-squadron-bgs.ngrok.app
+echo Dashboard live at https://my-squadron-bgs.ngrok.app
 pause
 ```
 
-Double-click it to start both the server and the tunnel in one click.
+Double-click to start everything in one shot.
+
+</details>
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 elite-bgs-analyzer/
-├── server.js              # Main Express server + all API routes
+├── server.js              # Express server + all API routes
 ├── eddn-listener.js       # EDDN ZeroMQ listener + tick detection
 ├── bgs-analyzer.js        # CLI companion tool
 ├── inara.js               # Inara API helper
 ├── public/
-│   └── index.html         # Full single-page dashboard (HTML/CSS/JS)
-├── data/                  # Auto-generated runtime data (gitignored)
+│   └── index.html         # Single-page dashboard (HTML/CSS/JS)
+├── data/                  # Runtime data — auto-generated, gitignored
 │   ├── squadron_config.json
 │   ├── users.json
 │   ├── tick_history.json
 │   └── ...
-├── .env                   # Your API keys (gitignored, NEVER share)
-├── .env.example           # Template — copy to .env to start manually
+├── .env                   # Your API keys — NEVER commit this
+├── .env.example           # Key template
 ├── SETUP.txt              # Detailed setup guide
-├── package.json
+├── start.bat              # Windows launcher
+├── setup.bat              # Windows first-run helper
 └── README.md
 ```
 
 ---
 
-## Updating
-
-When a new version is released, pull the latest code and restart:
+## 🔄 Updating
 
 ```bash
 git pull
@@ -399,52 +419,76 @@ npm install
 node server.js
 ```
 
-Your `data/` folder and `.env` are gitignored so your configuration and user data are never overwritten by an update.
+Your `data/` folder and `.env` are gitignored — your config and user data survive every update.
 
 ---
 
-## Security Notes
+## 🔐 Security Notes
 
-- Your `.env` file contains your API keys. **Never share it, never commit it to GitHub.**
-- The `.gitignore` in this repo excludes `.env` and all `data/` files by default.
-- Leadership and Dev passwords are set during the setup wizard. Change them if you ever suspect they've been compromised — re-run setup by deleting `data/squadron_config.json` and restarting the server.
-- This is a **self-hosted** tool. You control all the data. Nothing is sent to any third party except the AI API calls you configure.
-
----
-
-## Troubleshooting
-
-**Dashboard shows setup wizard every time**
-- Make sure `data/squadron_config.json` exists and `"setupComplete": true` is set.
-- If you deleted the file, just go through the wizard again.
-
-**AI analysis returns an error**
-- Check that your API keys are correct in `.env`
-- Gemini free tier has a daily limit (~50 requests). If you hit it, the system will fall over to Groq automatically.
-- Run the server from a terminal to see error output.
-
-**EDDN not receiving data**
-- EDDN requires an outbound connection to `eddn.edcd.io:9500` (ZeroMQ). Check your firewall.
-- Data only flows when players are actively submitting journals. It can be quiet during off-peak hours.
-
-
-**Theme save returns an error**
-- Make sure the server is fully restarted after any updates.
-- The `/api/users/theme` endpoint requires the server to be running the latest `server.js`.
+- Your `.env` file contains API keys. **Never share it. Never commit it.** The `.gitignore` excludes it automatically.
+- Passwords are set during setup. To reset, delete `data/squadron_config.json` and restart the server — the wizard runs again.
+- This is fully self-hosted. Your data never leaves your machine except for the AI API calls you explicitly configure.
 
 ---
 
-## Contributing
+## 🛠️ Troubleshooting
 
-Pull requests welcome. If you add a feature, please test it with a clean first-boot (delete `data/squadron_config.json` first).
+<details>
+<summary>Setup wizard appears every time</summary>
+
+Check that `data/squadron_config.json` exists and contains `"setupComplete": true`. If you deleted the file, run through the wizard again.
+
+</details>
+
+<details>
+<summary>AI analysis returns an error</summary>
+
+- Verify your API keys in `.env` are correct
+- Gemini free tier has a daily request limit — if hit, the system falls over to Groq automatically
+- Run the server in a terminal to see live error output
+
+</details>
+
+<details>
+<summary>EDDN not receiving data</summary>
+
+- EDDN requires outbound access to `eddn.edcd.io:9500` (ZeroMQ). Check your firewall.
+- Data only flows when players are actively playing and submitting journals. Off-peak hours can be quiet.
+
+</details>
+
+<details>
+<summary>Theme save returns a JSON error</summary>
+
+Restart the server. The `/api/users/theme` endpoint requires the running process to have loaded the latest `server.js`.
+
+</details>
+
+<details>
+<summary>Ngrok URL changed</summary>
+
+The free plan generates a new URL every time Ngrok restarts. Upgrade to a Starter plan for a permanent static domain, or paste the new URL in Discord each session.
+
+</details>
 
 ---
 
-## License
+## 🤝 Contributing
+
+Pull requests welcome. When adding a feature, test with a clean first-boot — delete `data/squadron_config.json` and restart the server to trigger the setup wizard.
+
+---
+
+## 📄 License
 
 MIT License — free to use, modify, and distribute. Credit appreciated but not required.
 
 ---
 
+<div align="center">
+
 *Built for Elite Dangerous squadron commanders who want real intelligence, not just data tables.*
 
+[![Demo](https://img.shields.io/badge/▶%20Live%20Demo-Try%20It%20Now-00d4ff?style=for-the-badge)](https://nonskeletal-davin-nonzonated.ngrok-free.dev/)
+
+</div>
