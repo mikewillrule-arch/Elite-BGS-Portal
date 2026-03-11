@@ -229,7 +229,7 @@ The setup wizard appears automatically on first launch. Fill in your squadron na
 
 ---
 
-## 🔑 Getting Your Free API Keys
+## Getting Your Free API Keys 🔑
 
 All AI providers below have a free tier sufficient for daily BGS analysis.
 
